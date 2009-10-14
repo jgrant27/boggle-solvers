@@ -104,10 +104,10 @@ LPSDROUNHVMELYMEVEENSRRECDAADTAUDRSTEUSQSIHAPRNYREQAIWCLKYGEGGONESHIUIGTNYYNTUGT
 KDSGNEOULRIXUEMSVEOSRAKDEOEBGUANDENWIKSITSPDMNYITDLIBFISLWKCEOOTHETKILEAFLYPNKIKSAEAJSEFJSIAVVROOQET'
 
 Board Tests : 
-character on board at [5][28] : I
-neighbors of character on board at [5][28] : DJUYADRA
-unused neighbors of character on board at [5][28] (set [1,2] as used]) : DYADRA
-unused neighbors of character on board at [5][28] (all unused) : DJUYADRA
+character on board at [16][65] : O
+neighbors of character on board at [16][65] : STPKFMEW
+unused neighbors of character on board at [16][65] (set [1,2] as used]) : SKFMEW
+unused neighbors of character on board at [16][65] (all unused) : STPKFMEW
 
 Trie Tests : 
 test trie insert of text LAMINATE
@@ -120,7 +120,7 @@ test trie insert of text LAMINATE
  subtree for letter LAMI'N' : 4 (expect level 4)
  length of 'PADDED?' is 7 (expect 7)
 
-loading dictionary from ../../dict/english_270k.txt done.
+loading dictionary from dict/english_270k.txt done.
 267627 words loaded. 
 trie depth: 15, level: 0 
 
@@ -55597,4 +55597,4 @@ SHULES
 SHEUGH
 SHELFY
 
-board solve time :       0.341847986s
+board solve time :       0.413740993s

@@ -1,4 +1,4 @@
-loading dictionary /home/jgrant/boggle/src/lisp/../../dict/english_270k.txt ...done.
+loading dictionary /Users/jgrant/boggle-solvers/src/lisp/../../dict/english_270k.txt ...done.
 loaded 267627 words.
 
 XTROACVADVJEREQEEFYH
@@ -6573,8 +6573,9 @@ ORRISES
 RORE
 SRIS
 Evaluation took:
-  0.065 seconds of real time
-  0.064004 seconds of total run time (0.020001 user, 0.044003 system)
-  98.46% CPU
-  141,976,406 processor cycles
-  515,616 bytes consed
+  0.518 seconds of real time
+  0.440690 seconds of total run time (0.092868 user, 0.347822 system)
+  85.14% CPU
+  1,168,193,632 processor cycles
+  258,080 bytes consed
+  

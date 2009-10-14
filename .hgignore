@@ -8,6 +8,7 @@ syntax: glob
 .DS_Store
 patches/
 bin/*
+*.dSYM*
 
 # switch to regexp syntax.
 syntax: regexp

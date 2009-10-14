@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-pushd src/lisp/ > /dev/null
-
 ### Compilers in order of speed of generated code (desc)
 
+
+pushd src/lisp > /dev/null
 
 ### Clozure Common Lisp
 
@@ -38,5 +38,5 @@ sbcl --noinform \
 #    -eval "(cl-boggle:run-board-generator)" \
 #    -eval "(quit)"
 
-
 popd > /dev/null
+
