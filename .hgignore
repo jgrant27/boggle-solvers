@@ -1,0 +1,14 @@
+# use glob syntax.
+syntax: glob
+
+*\#*
+*.[oa]
+*.gcno
+*.fasl
+.DS_Store
+patches/
+bin/*
+
+# switch to regexp syntax.
+syntax: regexp
+.*~

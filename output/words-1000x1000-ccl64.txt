@@ -1,0 +1,7 @@
+loading dictionary /home/jgrant/boggle/src/lisp/../../dict/english_270k.txt ...   done.
+loaded 267627 words.   
+> Break: interrupt signal
+> While executing: CREATE-BOARD, in process listener(1).
+> Type :GO to continue, :POP to abort, :R for a list of available restarts.
+> If continued: Return from BREAK.
+> Type :? for other options.
