@@ -1,4 +1,4 @@
-loading dictionary /Users/jgrant/boggle-solvers/src/lisp/../../dict/english_270k.txt ...done.
+loading dictionary /home/jgrant/boggle-solvers/src/lisp/../../dict/english_270k.txt ...done.
 loaded 267627 words.
 
 DOOTDBKCUOEVEHDONYFNABKAEPALIELFPEBPAKQEKEELVEDITIELJAGPRAKYIKPGIQEAWUYFPDHODLWGRTSFJNTFDMEPAGTMHSTY
@@ -55568,9 +55568,9 @@ SHULES
 SHEUGH
 SHELFY
 Evaluation took:
-  3.077 seconds of real time
-  2.718571 seconds of total run time (0.842089 user, 1.876482 system)
-  88.37% CPU
-  6,940,614,744 processor cycles
-  6,060,064 bytes consed
+  1.272 seconds of real time
+  1.036064 seconds of total run time (0.696043 user, 0.340021 system)
+  81.45% CPU
+  2,790,441,225 processor cycles
+  12,124,080 bytes consed
   

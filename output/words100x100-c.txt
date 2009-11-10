@@ -104,10 +104,10 @@ LPSDROUNHVMELYMEVEENSRRECDAADTAUDRSTEUSQSIHAPRNYREQAIWCLKYGEGGONESHIUIGTNYYNTUGT
 KDSGNEOULRIXUEMSVEOSRAKDEOEBGUANDENWIKSITSPDMNYITDLIBFISLWKCEOOTHETKILEAFLYPNKIKSAEAJSEFJSIAVVROOQET'
 
 Board Tests : 
-character on board at [16][65] : O
-neighbors of character on board at [16][65] : STPKFMEW
-unused neighbors of character on board at [16][65] (set [1,2] as used]) : SKFMEW
-unused neighbors of character on board at [16][65] (all unused) : STPKFMEW
+character on board at [0][1] : O
+neighbors of character on board at [0][1] : DOTTA
+unused neighbors of character on board at [0][1] (set [1,2] as used]) : DTA
+unused neighbors of character on board at [0][1] (all unused) : DOTTA
 
 Trie Tests : 
 test trie insert of text LAMINATE
@@ -55597,4 +55597,4 @@ SHULES
 SHEUGH
 SHELFY
 
-board solve time :       0.413740993s
+board solve time :       0.439999998s
