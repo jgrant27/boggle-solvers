@@ -39,7 +39,7 @@
 (defvar *boggle-4x4-die*
   ;; Standard die for a 4 X 4 boggle board
   '("FORIXB" "MOQABJ" "GURILW" "SETUPL"
-    "CMPDAE" "ACITAO" "SLCRAE" "ROMASH" 
+    "CMPDAE" "ACITAO" "SLCRAE" "ROMASH"
     "NODESW" "HEFIYE" "ONUDTK" "TEVIGN"
     "ANEDVZ" "PINESH" "ABILYT" "GKYLEU"))
 
@@ -47,28 +47,28 @@
 
 (defun get-die (&key (dimensions '(4 4)))
   "Gets the die for the dimensions"
-  (let* ((number-of-die (* (first dimensions) 
+  (let* ((number-of-die (* (first dimensions)
                            (second dimensions)))
-         (die-list (make-array 0 
-                                :element-type '(unsigned-byte *)
-                                :fill-pointer 0 
-                                :adjustable t)))
+         (die-list (make-array 0
+                               :element-type '(unsigned-byte *)
+                               :fill-pointer 0
+                               :adjustable t)))
     (if (> (length *boggle-4x4-die*)
            number-of-die)
         (subseq *boggle-4x4-die* 0 number-of-die)
-        (progn
-          (dotimes (n (ceiling 
-                       (/ number-of-die
-                          (length *boggle-4x4-die*))))
-            (dolist (o *boggle-4x4-die*)
-              (vector-push-extend o die-list)))))
+      (progn
+        (dotimes (n (ceiling
+                     (/ number-of-die
+                        (length *boggle-4x4-die*))))
+          (dolist (o *boggle-4x4-die*)
+            (vector-push-extend o die-list)))))
     (setf (fill-pointer die-list) (- number-of-die 1))
 
     ;; now create the 2d list
-    (map 'list 
+    (map 'list
          #'(lambda (die-str)
-             (map 'list 
-                  #'(lambda (c) 
+             (map 'list
+                  #'(lambda (c)
                       (string c)) die-str))
          die-list)))
 
@@ -83,13 +83,13 @@
     ;; Generate the board config from the rolled die
     (dotimes (num (first dimensions) board)
       (setf (nth num board)
-            (map 'list 
+            (map 'list
                  #'(lambda (die)
                      (nth (random (length die)) die)) ; roll the die
-                 (slice rolled-die 
-                        (if (= 0 num) 
-                            0 
-                            (+ (* num (second dimensions) 1)))
+                 (slice rolled-die
+                        (if (= 0 num)
+                            0
+                          (+ (* num (second dimensions) 1)))
                         (second dimensions)))))
     board))
 
@@ -107,7 +107,7 @@
           ("-?" 0 (progn (princ ext:*help-message* *standard-output*) (ext:quit 0)))
           ("*DEFAULT*" 1 nil)))
 #+ecl (setf *ecl-args* nil)
-#+ecl (ext:process-command-args :rules +ls-rules+ :args *ecl-args*) 
+#+ecl (ext:process-command-args :rules +ls-rules+ :args *ecl-args*)
 
 (defun run-board-generator ()
   ;; Main entry point if run from command line
@@ -115,12 +115,12 @@
   (let*
       (
        #+ecl (args *ecl-args*)
-       #+ccl (args *COMMAND-LINE-ARGUMENT-LIST*)
-       #+sbcl (args sb-ext:*posix-argv*)
-       #+cmu (args extensions:*command-line-strings*)
-       (count (get-int-arg (second args) "1"))
-       (rows (get-int-arg (third args) "4"))
-       (cols (get-int-arg (fourth args) "4")))
+             #+ccl (args *COMMAND-LINE-ARGUMENT-LIST*)
+             #+sbcl (args sb-ext:*posix-argv*)
+             #+cmu (args extensions:*command-line-strings*)
+             (count (get-int-arg (second args) "1"))
+             (rows (get-int-arg (third args) "4"))
+             (cols (get-int-arg (fourth args) "4")))
 
     (dotimes (n count)
       (print-board-config-text

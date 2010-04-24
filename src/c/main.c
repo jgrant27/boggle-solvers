@@ -1,6 +1,6 @@
 // Copyright (c) 2009, Justin Grant <justin at imagine27 dot com>
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //     * Redistributions of source code must retain the above copyright
@@ -11,7 +11,7 @@
 //     * Neither the name of the <organization> nor the
 //       names of its contributors may be used to endorse or promote products
 //       derived from this software without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY <copyright holder> ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -56,7 +56,7 @@ int main( int argc, const char **argv ) {
       } else if (strcmp(strip((char*)argv[i]), "--dict") == 0) {
         load_path=(char*)argv[i+1];
       } else if (strcmp(strip((char*)argv[i]), "--sleep") == 0) {
-        sleep_delay = strtol(strip((char*)argv[i+1]), NULL, 10); 
+        sleep_delay = strtol(strip((char*)argv[i+1]), NULL, 10);
       }
     }
   }
@@ -72,7 +72,7 @@ int main( int argc, const char **argv ) {
 
   // run some quick tests on the Trie if --test has been used
   if (run_tests) { run_dict_tests(t); }
- 
+
   clock_t start;
   clock_t end;
   start = clock();
@@ -92,7 +92,7 @@ int main( int argc, const char **argv ) {
       printf("\nsleeping for %i seconds before exit...\n\n", sleep_delay); fflush(stdout);
       sleep(sleep_delay);
     }
-  } 
+  }
 
   // clean up
   free(brd);

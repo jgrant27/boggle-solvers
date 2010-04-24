@@ -34,7 +34,7 @@
 ;;; Date : 03/21/2009
 ;;;
 ;;; Takes a list of boards
-;;; and solves them checking for valid words using a 
+;;; and solves them checking for valid words using a
 ;;; dictionary. Also shows maximum board scores.
 ;;; (Uses a Trie / Prefix Tree to store and find words.)
 ;;;
@@ -44,18 +44,18 @@
 
 ;;#+sbcl (require :sb-sprof)
 
-(declaim (optimize (speed 3) 
-                   (space 0) 
-                   (safety 0) 
-                   (debug 0) 
+(declaim (optimize (speed 3)
+                   (space 0)
+                   (safety 0)
+                   (debug 0)
                    (compilation-speed 0)))
 
-;(setf (bytes-consed-between-gcs) (* 128 1024 1024))
+                                        ;(setf (bytes-consed-between-gcs) (* 128 1024 1024))
 
 ;; global consts
-(defvar *dict-path* 
+(defvar *dict-path*
   (concatenate 'string
-               (directory-namestring *load-truename*)  
+               (directory-namestring *load-truename*)
                "../../dict/english_270k.txt"))
 
 (defvar *test-board-dimensions* '(100 100))
@@ -83,7 +83,7 @@
 (defun find-words (ltr word fi tr)
   "Recursively find words by searching dictionary"
   (declare (optimize (speed 3) (space 0) (debug 0)))
-  (declare 
+  (declare
    (type (simple-array character (*)) word)
    (type trie tr)
    (type letter ltr)
@@ -91,7 +91,7 @@
 
   ;; the letter as used in the word
   (setf (letter-used ltr) t)
-  
+
   (let ((cc (letter-value ltr)))
     (declare (type character cc))
 
@@ -99,7 +99,7 @@
     (setf (aref word fi) cc)
     (setq fi (+ fi 1))
     (setf (aref word fi) #\Null)
-    
+
     ;; handle Q's
     (when (eql cc #\Q)
       (setq cc #\U)
@@ -107,13 +107,13 @@
       (setq fi (+ fi 1))
       (setf (aref word fi) #\Null)
       (setq tr (get-child tr #\Q)))
-    
+
     ;; Any words in the trie ?
     (when (and (>= (length word) +min-word-length+)
                (trie-include-prune-p tr word))
       (setf (aref word fi) #\Newline)
       (write-string word nil :end (1+ fi)))
-    
+
     (let ((child (aref (trie-children tr)
                        (- (char-code cc) (char-code #\A)))))
       ;; try longer words with neighbors
@@ -125,7 +125,7 @@
                 #+ccl (declare (type letter neighbor))
                 (if (not (letter-used neighbor))
                     (find-words neighbor word fi child)))))))
-    
+
     ;; the letter is no longer in use
     (setf (letter-used ltr) nil)))
 
@@ -134,14 +134,14 @@
           (create-board
            (board-from-stream stream)))
          (word (make-array 20
-                            :initial-element #\Null
-                            :element-type 'character))
+                           :initial-element #\Null
+                           :element-type 'character))
          (board-letters (board-letters the-board)))
     (declare (type board the-board))
     ;; Print out the board config
     (print-board-config-text (board-config the-board))
     (format t "~%")
-        
+
     (time
      (progn
        (dotimes (i (board-rows the-board))
@@ -149,18 +149,18 @@
            (declare (type simple-vector row))
            (dotimes (j (board-cols the-board))
              (let ((letter (aref row j)))
-               (find-words 
+               (find-words
                 letter
                 word
                 0
                 *dict-trie*)))))))))
 
 (defun run-solver-from-stdin ()
-  "reads boards on stdin and solves them. A word per line is output. 
+  "reads boards on stdin and solves them. A word per line is output.
    An empty line separates the list of words for a board."
   (run-solver *standard-input*))
 
 (defun run-solver-on-file (file)
   (with-open-file (stream file :direction :input
                           :element-type 'character)
-    (run-solver stream)))
+                  (run-solver stream)))

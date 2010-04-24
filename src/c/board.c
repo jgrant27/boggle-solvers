@@ -1,6 +1,6 @@
 // Copyright (c) 2009, Justin Grant <justin at imagine27 dot com>
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //     * Redistributions of source code must retain the above copyright
@@ -11,7 +11,7 @@
 //     * Neither the name of the <organization> nor the
 //       names of its contributors may be used to endorse or promote products
 //       derived from this software without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY <copyright holder> ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -48,7 +48,7 @@ void setup_board(board* brd) {
 
   brd->letters = (struct letter***)malloc(sizeof(letter**) * brd->rows);
   memset(brd->letters, 0, sizeof(brd->letters));
-  int rcnt = 0 ; int ccnt = 0; 
+  int rcnt = 0 ; int ccnt = 0;
   for (;rcnt < brd->rows; rcnt++) {
     brd->letters[rcnt] = (struct letter**)malloc(sizeof(letter*) * brd->cols);
     for (;ccnt < brd->cols; ccnt++) {
@@ -80,13 +80,13 @@ void setup_board(board* brd) {
       }
     }
   }
-  
+
 }
 
 
 char* config_string(board* brd) {
   char* str = (char*)malloc((sizeof(char) * brd->rows * brd->cols)
-			    + (brd->rows * sizeof(char))); // for new line chars
+                            + (brd->rows * sizeof(char))); // for new line chars
   memset(str, 0, sizeof(str));
 
   int i = 0;
@@ -107,7 +107,7 @@ board* get_board_from_stdin(int show_output) {
   int lncnt = 0;
 
   while(fgets(line, LINE_MAX + 1, stdin) != NULL) {
-    
+
     char* oline = strip(line);
     char* sline = oline;
     char* cline = sline;
@@ -120,12 +120,12 @@ board* get_board_from_stdin(int show_output) {
 
     // ignore spaces or commas separating letters
     while (*sline) {
-      if (!isalpha(*sline)) { 
-        ++sline; 
+      if (!isalpha(*sline)) {
+        ++sline;
         continue;
-      } else { 
+      } else {
         cc = toupper(*sline++);
-        *cline++ = cc; 
+        *cline++ = cc;
         // handle Q's
         if(cc == 'Q' && *sline == 'U') sline++;
       }
@@ -135,8 +135,8 @@ board* get_board_from_stdin(int show_output) {
     config[lncnt] = oline;
     lncnt++;
 
-  }  
-   
+  }
+
   board* brd = new_board(config, lncnt, strlen(config[0]));
 
   //char* config[] = {"UCDNA", "WIISE", "EGLAI", "MLAIO", "XXXXX"};

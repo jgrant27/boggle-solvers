@@ -37,57 +37,57 @@
 
 (defun randomize-sequence (sequence)
   "Fast enough ;-)"
-   (loop
-      :with vector = (coerce sequence 'vector)
-      :for i :from (1- (length vector)) :downto 1
-      :do (rotatef (aref vector i) (aref vector (random i)))
-      :finally (return (coerce vector (type-of sequence))))) 
+  (loop
+   :with vector = (coerce sequence 'vector)
+   :for i :from (1- (length vector)) :downto 1
+   :do (rotatef (aref vector i) (aref vector (random i)))
+   :finally (return (coerce vector (type-of sequence)))))
 
 ;; Need to play with this function
 ;; to determine performance
 (defun fisher-yates-shuffle (lst)
   (let ((length (length lst)) (j 0))
     (loop for i from (1- length) downto 1 do
-      (setf j (random (1+ i)))
-      (psetf (nth i lst) (nth j lst)
-             (nth i lst) (nth j lst)))))
+          (setf j (random (1+ i)))
+          (psetf (nth i lst) (nth j lst)
+                 (nth i lst) (nth j lst)))))
 
 (defun get-n-items (lst num)
   "Get n items from the list"
   (if (> num 0)
       (cons (car lst) (get-n-items (cdr lst) (- num 1)))
-      ()))
+    ()))
 
 (defun slice (lst start count)
   "returns a slice from a list"
   (if (> start 1)
       (slice (cdr lst) (- start 1) count)
-      (remove nil (get-n-items lst count))))
+    (remove nil (get-n-items lst count))))
 
 (defun range (start end)
-  (loop for i from start below end collect i)) 
+  (loop for i from start below end collect i))
 
 (defun get-int-arg (str default)
   (parse-integer (if (> (length str) 0) str default)))
 
 (defun concatenate-strings (strings)
   (loop
-     :with result = (make-string (loop :for s :in strings :sum (length s)))
-     :for s :in strings
-     :for start = 0 :then (+ start (length s))
-     :do (replace result s :start1 start)
-     :finally (return result)))
+   :with result = (make-string (loop :for s :in strings :sum (length s)))
+   :for s :in strings
+   :for start = 0 :then (+ start (length s))
+   :do (replace result s :start1 start)
+   :finally (return result)))
 
 (defun vector-push-extend* (vector &rest items)
   (let ((element-type (array-element-type vector)))
     (dolist (item items)
       (cond
-        ((typep item element-type) ;; item can be put directly into the 
-         (vector-push-extend item vector))
-        ((typep item `(vector ,element-type)) ;; item should be a vector
-         (loop
-            for i across item
-            do (vector-push-extend i vector)))
-        (t
-         (error "Bad type for item ~S." item))))
+       ((typep item element-type) ;; item can be put directly into the
+        (vector-push-extend item vector))
+       ((typep item `(vector ,element-type)) ;; item should be a vector
+        (loop
+         for i across item
+         do (vector-push-extend i vector)))
+       (t
+        (error "Bad type for item ~S." item))))
     vector))

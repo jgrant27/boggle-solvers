@@ -38,8 +38,8 @@
 
 (defpackage "CL-BOGGLE"
   (:use "COMMON-LISP")
-  (:export "RUN-BOARD-GENERATOR" 
-           "BOGGLE-INIT" 
+  (:export "RUN-BOARD-GENERATOR"
+           "BOGGLE-INIT"
            "RUN-SOLVER-FROM-STDIN"
            "RUN-SOLVER-TEST"))
 
@@ -49,10 +49,9 @@
 (map 'list
      #'(lambda (fpath)
          (load (concatenate 'string
-                            (directory-namestring *load-truename*)  
+                            (directory-namestring *load-truename*)
                             fpath)))
      '("utils.lisp" "structs.lisp" "generation.lisp" "solver.lisp"))
 
 
 
-  

@@ -1,6 +1,6 @@
 // Copyright (c) 2009, Justin Grant <justin at imagine27 dot com>
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //     * Redistributions of source code must retain the above copyright
@@ -11,7 +11,7 @@
 //     * Neither the name of the <organization> nor the
 //       names of its contributors may be used to endorse or promote products
 //       derived from this software without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY <copyright holder> ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -40,7 +40,7 @@ letter* new_letter() {
   l->ncount = 0;
   l->uncount = 0;
   l->value = '\0';
- 
+
   return l;
 }
 
@@ -49,7 +49,7 @@ void set_neighbors(letter* ltr, letter** nbrs) {
 
   ltr->ncount = MAX_NEIGHBORS;
   int i = 0;
-  
+
   for (; i < MAX_NEIGHBORS; i++) {
     if (nbrs[i] == NULL)
       ltr->ncount--;

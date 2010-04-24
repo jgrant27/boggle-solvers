@@ -1,6 +1,6 @@
 // Copyright (c) 2009, Justin Grant <justin at imagine27 dot com>
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //     * Redistributions of source code must retain the above copyright
@@ -11,7 +11,7 @@
 //     * Neither the name of the <organization> nor the
 //       names of its contributors may be used to endorse or promote products
 //       derived from this software without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY <copyright holder> ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -40,7 +40,7 @@ void solve_board(trie* t, board* brd) {
       find_words(t, word, 0, (letter*)brd->letters[rind][cind]);
     }
   }
-  
+
 }
 
 
@@ -54,7 +54,7 @@ void find_words(trie* t, char* word, int fi, letter* ltr) {
 
   // handle Q's
   if (cc == 'Q') {
-    word[fi] = 'U'; 
+    word[fi] = 'U';
     word[++fi] = 0;
     //t = t->children['Q' - 'A'];
     t = get_child(t, 'Q');

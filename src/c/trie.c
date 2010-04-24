@@ -1,6 +1,6 @@
 // Copyright (c) 2009, Justin Grant <justin at imagine27 dot com>
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //     * Redistributions of source code must retain the above copyright
@@ -11,7 +11,7 @@
 //     * Neither the name of the <organization> nor the
 //       names of its contributors may be used to endorse or promote products
 //       derived from this software without specific prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY <copyright holder> ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -44,7 +44,7 @@ void insert(trie* t, char* word) {
 
   if (l == 0) {
     t->is_word = 1;
-    t->text = word;    
+    t->text = word;
     inc_word_count(t);
   } else {
     int i = l - 'A';
@@ -104,7 +104,7 @@ int begin(trie* t, char* word) {
     trie* tt = (trie*)t->children[l - 'A'];
     return tt != (trie*)NULL && begin(tt, word);
   }
-  
+
 }
 
 
@@ -137,7 +137,7 @@ trie* get_child(trie* t, char l) {
 }
 
 int load(trie* t, char* path) {
-  
+
   FILE* file = fopen ( path, "r" );
 
   if ( file != (FILE*)NULL ) {
@@ -180,32 +180,32 @@ trie* load_dict(char* load_path, int show_output) {
     printf("\nNo dictionary available.\nSpecify a word dictionary e.g. boggle --dict $PATH_TO_DICT\n");
     exit(0);
   }
-  
+
   // create a new instance
   trie* t = new_trie();
   if (show_output) {
-    printf("\nloading dictionary from %s ",load_path); 
+    printf("\nloading dictionary from %s ",load_path);
   }
   fflush(stdout);
   load(t, load_path);
   if (show_output) {
     printf("done.\n");
-  } 
+  }
   fflush(stdout);
   if (show_output) {
-    printf("%i words loaded. \n", t->word_count); 
+    printf("%i words loaded. \n", t->word_count);
   }
   fflush(stdout);
   //  if (show_output) {
-  //  printf("nodes / word: %i  \n\n", t->node_count / t->word_count); 
+  //  printf("nodes / word: %i  \n\n", t->node_count / t->word_count);
   //}
   //fflush(stdout);
   if (show_output) {
-    printf("trie depth: %i, level: %i \n\n", t->depth, t->level); 
+    printf("trie depth: %i, level: %i \n\n", t->depth, t->level);
   }
   fflush(stdout);
-  
+
   return t;
-  
+
 }
 

@@ -3,22 +3,22 @@
 
 
 void test_board(board* brd) {
-  
+
   // create a new instance
   trie* t = new_trie();
-  
+
   // board tests
   int x = get_random(brd->rows);
   int y = get_random(brd->cols);
   letter* ltr = (letter*)brd->letters[x][y];
 
   printf("\n\nBoard Tests : \ncharacter on board at [%ld][%ld] : %c\n", x, y, ltr->value);
-  
+
   // neighbors
   printf("neighbors of character on board at [%ld][%ld] : ", x, y);
   int i;
-  for (i = 0; i < ltr->ncount; i++) { 
-    printf("%c", ((letter*)ltr->neighbors[i])->value); 
+  for (i = 0; i < ltr->ncount; i++) {
+    printf("%c", ((letter*)ltr->neighbors[i])->value);
   }
 
   // unused neighbors
@@ -90,7 +90,7 @@ void test_board(board* brd) {
        children['A' - 'A'])->
       children['M' - 'A'])->
      children['I' - 'A'])->level;
-    
+
   printf(" subtree for letter %s : %i (expect level 4)\n", "LAMI'N'", level) ;
   assert(level == 4);
 
