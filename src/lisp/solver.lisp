@@ -50,7 +50,7 @@
                    (debug 0)
                    (compilation-speed 0)))
 
-                                        ;(setf (bytes-consed-between-gcs) (* 128 1024 1024))
+;;(setf (bytes-consed-between-gcs) (* 128 1024 1024))
 
 ;; global consts
 (defvar *dict-path*
